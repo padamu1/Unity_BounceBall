@@ -42,6 +42,7 @@ public class PlayerScript : MonoBehaviour
         {
             rigidbody2D.AddForce(new Vector2(0.5f, 0f) * Time.deltaTime * m_fSpeed, ForceMode2D.Force);
         }
+
         if(rigidbody2D.velocity.y < 0f)
         {
             rigidbody2D.AddForce(new Vector2(0f, -5f) * Time.deltaTime * m_fSpeed, ForceMode2D.Force);
@@ -63,4 +64,15 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    void PauseGame()
+    {
+        if (Time.timeScale == 1)
+            Time.timeScale = 0;
+    }
+
+    void ResumeGame()
+    {
+        if (Time.timeScale == 0)
+            Time.timeScale = 1;
+    }
 }
